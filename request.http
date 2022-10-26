@@ -1,0 +1,2 @@
+### Category
+GET http://localhost:3002/category HTTP/1.1
