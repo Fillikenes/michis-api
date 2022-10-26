@@ -12,7 +12,4 @@ import { CategoryModule } from './modules/category/category.module';
   providers: [AppService],
 })
 export class AppModule {
-  public config = this.configService.config;
-
-  constructor(private readonly configService: ConfigService) {}
 }
