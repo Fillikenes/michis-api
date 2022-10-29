@@ -1,2 +1,21 @@
 ### Category
+### GET ALL CATEGORIES
 GET http://localhost:3002/category HTTP/1.1
+### GET CATEGORY BY ID
+GET http://localhost:3002/category/6358a8a8d67246536825ca91 HTTP/1.1
+### CREATE NEW CATEGORY
+POST http://localhost:3002/category HTTP/1.1
+content-type: application/json
+
+{
+    "name": "category test 1"
+}
+### UPDATE CATEGORY
+PUT http://localhost:3002/category/635c92f641b4994d3fbe77f9 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "category update 2",
+}
+### DELETE CATEGORY
+DELETE http://localhost:3002/category/635c92f641b4994d3fbe77f9 HTTP/1.1
