@@ -5,7 +5,7 @@ import { PrismaModule } from '../../shared/services/prisma/prisma.module';
 
 @Module({
   imports: [PrismaModule],
-  providers: [RiskLevelService],
   controllers: [RiskLevelController],
+  providers: [RiskLevelService],
 })
 export class RiskLevelModule {}

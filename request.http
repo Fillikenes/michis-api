@@ -19,3 +19,25 @@ content-type: application/json
 }
 ### DELETE CATEGORY
 DELETE http://localhost:3002/category/635c92f641b4994d3fbe77f9 HTTP/1.1
+###
+### Risk Level
+### GET ALL
+GET http://localhost:3002/risk-level HTTP/1.1
+### GET BY ID
+GET http://localhost:3002/risk-level/635d9d9e93b2bfccf5164bfc HTTP/1.1
+### CREATE 
+POST http://localhost:3002/risk-level HTTP/1.1
+content-type: application/json
+
+{
+    "name": "risk level test 3"
+}
+### UPDATE
+PUT http://localhost:3002/risk-level/635d9d9e93b2bfccf5164bfc HTTP/1.1
+content-type: application/json
+
+{
+    "name": "risk level update 2"
+}
+### DELETE
+DELETE http://localhost:3002/risk-level/635d9dbd93b2bfccf5164bfd HTTP/1.1
