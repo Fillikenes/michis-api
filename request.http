@@ -41,3 +41,25 @@ content-type: application/json
 }
 ### DELETE
 DELETE http://localhost:3002/risk-level/635d9dbd93b2bfccf5164bfd HTTP/1.1
+###
+### Consume Frequency
+### GET ALL
+GET http://localhost:3002/consume-frequency HTTP/1.1
+### GET BY ID
+GET http://localhost:3002/consume-frequency/635de6e68e238e5869b21651 HTTP/1.1
+### CREATE 
+POST http://localhost:3002/consume-frequency HTTP/1.1
+content-type: application/json
+
+{
+    "frequency": "5 per day"
+}
+### UPDATE
+PUT http://localhost:3002/consume-frequency/635de6ee8e238e5869b21652 HTTP/1.1
+content-type: application/json
+
+{
+    "frequency": "Moderation"
+}
+### DELETE
+DELETE http://localhost:3002/consume-frequency/635de6e68e238e5869b21651 HTTP/1.1
