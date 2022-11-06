@@ -63,3 +63,28 @@ content-type: application/json
 }
 ### DELETE
 DELETE http://localhost:3002/consume-frequency/635de6e68e238e5869b21651 HTTP/1.1
+### Severity Scale
+### GET ALL SEVERITIES
+GET http://localhost:3002/severity-scale HTTP/1.1
+### GET SEVERITY BY ID
+GET http://localhost:3002/severity-scale/636172586a00904c6b70ba20 HTTP/1.1
+### CREATE NEW SEVERITY
+POST http://localhost:3002/severity-scale HTTP/1.1
+content-type: application/json
+
+{
+    "name": "severity scale 1",
+    "description": "i am a severity",
+    "icon": "pretty-icon"
+}
+### UPDATE SEVERITY
+PUT http://localhost:3002/severity-scale/636172586a00904c6b70ba20 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "update severity scale 2",
+    "description": "i am a severity",
+    "icon": "pretty-icon"
+}
+### DELETE CATEGORY
+DELETE http://localhost:3002/severity-scale/636172586a00904c6b70ba20 HTTP/1.1
