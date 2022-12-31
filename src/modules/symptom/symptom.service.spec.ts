@@ -6,7 +6,7 @@ import { SeverityScaleService } from '../severity-scale/severity-scale.service';
 describe('SymptomService', () => {
   let service: SymptomService;
   let prismaService: PrismaService;
-  //let severityScaleService: SeverityScaleService;
+  let severityScaleService: SeverityScaleService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
