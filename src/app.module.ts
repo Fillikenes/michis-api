@@ -7,6 +7,7 @@ import { CategoryModule } from './modules/category/category.module';
 import { RiskLevelModule } from './modules/risk-level/risk-level.module';
 import { ConsumeFrequencyModule } from './modules/consume-frequency/consume-frequency.module';
 import { SeverityScaleModule } from './modules/severity-scale/severity-scale.module';
+import { SymptomModule } from './modules/symptom/symptom.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { SeverityScaleModule } from './modules/severity-scale/severity-scale.mod
     RiskLevelModule,
     ConsumeFrequencyModule,
     SeverityScaleModule,
+    SymptomModule,
   ],
   controllers: [AppController],
   providers: [AppService],

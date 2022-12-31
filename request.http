@@ -1,75 +1,78 @@
+@Host = http://localhost:3002
+
 ### Category
 ### GET ALL CATEGORIES
-GET http://localhost:3002/category HTTP/1.1
+GET {{Host}}/category HTTP/1.1
 ### GET CATEGORY BY ID
-GET http://localhost:3002/category/6358a8a8d67246536825ca91 HTTP/1.1
+GET {{Host}}/category/6358a8a8d67246536825ca91 HTTP/1.1
 ### CREATE NEW CATEGORY
-POST http://localhost:3002/category HTTP/1.1
+POST {{Host}}/category HTTP/1.1
 content-type: application/json
 
 {
     "name": "category test 1"
 }
 ### UPDATE CATEGORY
-PUT http://localhost:3002/category/635c92f641b4994d3fbe77f9 HTTP/1.1
+PUT {{Host}}/category/635c92f641b4994d3fbe77f9 HTTP/1.1
 content-type: application/json
 
 {
     "name": "category update 2",
 }
 ### DELETE CATEGORY
-DELETE http://localhost:3002/category/635c92f641b4994d3fbe77f9 HTTP/1.1
+DELETE {{Host}}/category/635c92f641b4994d3fbe77f9 HTTP/1.1
 ###
 ### Risk Level
 ### GET ALL
-GET http://localhost:3002/risk-level HTTP/1.1
+GET {{Host}}/risk-level HTTP/1.1
 ### GET BY ID
-GET http://localhost:3002/risk-level/635d9d9e93b2bfccf5164bfc HTTP/1.1
+GET {{Host}}/risk-level/635d9d9e93b2bfccf5164bfc HTTP/1.1
 ### CREATE 
-POST http://localhost:3002/risk-level HTTP/1.1
+POST {{Host}}/risk-level HTTP/1.1
 content-type: application/json
 
 {
     "name": "risk level test 3"
 }
 ### UPDATE
-PUT http://localhost:3002/risk-level/635d9d9e93b2bfccf5164bfc HTTP/1.1
+PUT {{Host}}/risk-level/635d9d9e93b2bfccf5164bfc HTTP/1.1
 content-type: application/json
 
 {
     "name": "risk level update 2"
 }
 ### DELETE
-DELETE http://localhost:3002/risk-level/635d9dbd93b2bfccf5164bfd HTTP/1.1
+DELETE {{Host}}/risk-level/635d9dbd93b2bfccf5164bfd HTTP/1.1
 ###
 ### Consume Frequency
 ### GET ALL
-GET http://localhost:3002/consume-frequency HTTP/1.1
+GET {{Host}}/consume-frequency HTTP/1.1
 ### GET BY ID
-GET http://localhost:3002/consume-frequency/635de6e68e238e5869b21651 HTTP/1.1
+GET {{Host}}/consume-frequency/635de6e68e238e5869b21651 HTTP/1.1
 ### CREATE 
-POST http://localhost:3002/consume-frequency HTTP/1.1
+POST {{Host}}/consume-frequency HTTP/1.1
 content-type: application/json
 
 {
     "frequency": "5 per day"
 }
 ### UPDATE
-PUT http://localhost:3002/consume-frequency/635de6ee8e238e5869b21652 HTTP/1.1
+PUT {{Host}}/consume-frequency/635de6ee8e238e5869b21652 HTTP/1.1
 content-type: application/json
 
 {
     "frequency": "Moderation"
 }
 ### DELETE
-DELETE http://localhost:3002/consume-frequency/635de6e68e238e5869b21651 HTTP/1.1
+DELETE {{Host}}/consume-frequency/635de6e68e238e5869b21651 HTTP/1.1
+###
 ### Severity Scale
 ### GET ALL SEVERITIES
-GET http://localhost:3002/severity-scale HTTP/1.1
+GET {{Host}}/severity-scale HTTP/1.1
 ### GET SEVERITY BY ID
-GET http://localhost:3002/severity-scale/636172586a00904c6b70ba20 HTTP/1.1
+GET {{Host}}/severity-scale/636172586a00904c6b70ba20 HTTP/1.1
 ### CREATE NEW SEVERITY
-POST http://localhost:3002/severity-scale HTTP/1.1
+POST {{Host}}/severity-scale HTTP/1.1
 content-type: application/json
 
 {
@@ -78,7 +81,7 @@ content-type: application/json
     "icon": "pretty-icon"
 }
 ### UPDATE SEVERITY
-PUT http://localhost:3002/severity-scale/636172586a00904c6b70ba20 HTTP/1.1
+PUT {{Host}}/severity-scale/636172586a00904c6b70ba20 HTTP/1.1
 content-type: application/json
 
 {
@@ -86,5 +89,29 @@ content-type: application/json
     "description": "i am a severity",
     "icon": "pretty-icon"
 }
-### DELETE CATEGORY
-DELETE http://localhost:3002/severity-scale/636172586a00904c6b70ba20 HTTP/1.1
+### DELETE SEVERITY
+DELETE {{Host}}/severity-scale/636172586a00904c6b70ba20 HTTP/1.1
+###
+### Symptom
+### GET ALL SYMPTOMS
+GET {{Host}}/symptom HTTP/1.1
+### GET SYMPTOM BY ID
+GET {{Host}}/symptom/636f06c1c822c8919d3d203a HTTP/1.1
+### CREATE NEW SYMPTOM
+POST {{Host}}/symptom HTTP/1.1
+content-type: application/json
+
+{
+    "name": "symptom 2 severity doesn't exist",
+    "severityScaleId": "63618a027438717bc9f1f222"
+}
+### UPDATE SYMPTOM
+PUT {{Host}}/symptom/ID HTTP/1.1
+content-type: application/json
+
+{
+    "name": "update symptom 2",
+    "severityScaleId": "63618a027438717bc9f1f1e0"
+}
+### DELETE SYMPTOM
+DELETE {{Host}}/symptom/636f06c1c822c8919d3d203a HTTP/1.1

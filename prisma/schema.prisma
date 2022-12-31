@@ -26,8 +26,16 @@ model ConsumeFrequency {
 }
 
 model SeverityScale {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  name        String @unique
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String    @unique
   description String
   icon        String
+  Symptom     Symptom[]
+}
+
+model Symptom {
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
+  name            String        @unique
+  severityScaleId String        @db.ObjectId
+  severityScale   SeverityScale @relation(fields: [severityScaleId], references: [id])
 }

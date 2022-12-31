@@ -7,5 +7,6 @@ import { PrismaModule } from '../../shared/services/prisma/prisma.module';
   imports: [PrismaModule],
   controllers: [SeverityScaleController],
   providers: [SeverityScaleService],
+  exports: [SeverityScaleService],
 })
 export class SeverityScaleModule {}
