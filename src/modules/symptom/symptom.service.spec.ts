@@ -92,4 +92,36 @@ describe('SymptomService', () => {
       });
     });
   });
+
+  describe('#createSymptom', () => {
+    it('should create a new symptom in the db based in the properties given as arguments', async () => {
+      const params = {
+        name: 'symptom',
+        severityScaleId: 'severity scale id',
+      };
+      const expectedResponse = {
+        id: '123abc',
+        name: params.name,
+        severityScaleId: params.severityScaleId,
+      };
+      const createSpy = jest
+        .spyOn(prismaService.symptom, 'create')
+        .mockResolvedValue(expectedResponse);
+
+      const result = await service.createSymptom(
+        params.name,
+        params.severityScaleId,
+      );
+
+      expect(result).toBeDefined();
+      expect(result).toEqual(expectedResponse);
+      expect(createSpy).toHaveBeenCalled();
+      expect(createSpy).toHaveBeenCalledWith({
+        data: {
+          name: params.name,
+          severityScaleId: params.severityScaleId,
+        },
+      });
+    });
+  });
 });
