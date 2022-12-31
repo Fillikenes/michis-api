@@ -87,7 +87,7 @@ describe('SymptomService', () => {
       expect(findFirstSpy).toHaveBeenCalled();
       expect(findFirstSpy).toHaveBeenCalledWith({
         where: { id: params.id },
-        include: { severityScale: true },
+        include: { severityScale: true, foods: true },
       });
     });
   });
