@@ -41,6 +41,7 @@ describe('SymptomController', () => {
           id: 'abc123',
           name: 'symptom',
           severityScaleId: 'severity scale id',
+          foodIds: [],
         },
       ];
       const getSymptomsSpy = jest
@@ -62,6 +63,7 @@ describe('SymptomController', () => {
         id: params.id,
         name: 'symptom',
         severityScaleId: 'severity scale id',
+        foodIds: [],
       };
       const getSymptomByIdSpy = jest
         .spyOn(symptomService, 'getSymptomById')
@@ -86,6 +88,7 @@ describe('SymptomController', () => {
         id: '123abc',
         name: params.name,
         severityScaleId: params.severityScaleId,
+        foodIds: [],
       };
       const createSymptomSpy = jest
         .spyOn(symptomService, 'createSymptom')
@@ -114,6 +117,7 @@ describe('SymptomController', () => {
         id: paramId,
         name: paramsBody.name,
         severityScaleId: paramsBody.severityScaleId,
+        foodIds: [],
       };
       const updateSeverityScaleSpy = jest
         .spyOn(symptomService, 'updateSymptom')
@@ -139,6 +143,7 @@ describe('SymptomController', () => {
         id: params.id,
         name: 'symptom',
         severityScaleId: 'severity scale id',
+        foodIds: [],
       };
       const deleteSeverityScaleByIdSpy = jest
         .spyOn(symptomService, 'deleteSymptomById')

@@ -11,18 +11,21 @@ datasource db {
 }
 
 model Category {
-  id   String @id @default(auto()) @map("_id") @db.ObjectId
-  name String @unique
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String @unique
+  foods Food[]
 }
 
 model RiskLevel {
-  id   String @id @default(auto()) @map("_id") @db.ObjectId
-  name String @unique
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String @unique
+  foods Food[]
 }
 
 model ConsumeFrequency {
   id        String @id @default(auto()) @map("_id") @db.ObjectId
   frequency String @unique
+  foods     Food[]
 }
 
 model SeverityScale {
@@ -30,12 +33,35 @@ model SeverityScale {
   name        String    @unique
   description String
   icon        String
-  Symptom     Symptom[]
+  symptoms    Symptom[]
 }
 
 model Symptom {
   id              String        @id @default(auto()) @map("_id") @db.ObjectId
   name            String        @unique
-  severityScaleId String        @db.ObjectId
   severityScale   SeverityScale @relation(fields: [severityScaleId], references: [id])
+  severityScaleId String        @db.ObjectId
+  foods           Food[]        @relation(fields: [foodIds], references: [id])
+  foodIds         String[]      @db.ObjectId
+}
+
+model Food {
+  id                 String            @id @default(auto()) @map("_id") @db.ObjectId
+  name               String            @unique
+  description        String
+  suggestions        String[]
+  symptoms           Symptom[]         @relation(fields: [symptomsIds], references: [id])
+  symptomsIds        String[]          @db.ObjectId
+  consumeFrequency   ConsumeFrequency? @relation(fields: [consumeFrequencyId], references: [id])
+  consumeFrequencyId String?           @db.ObjectId
+  category           Category          @relation(fields: [categoryId], references: [id])
+  categoryId         String            @db.ObjectId
+  riskLevel          RiskLevel         @relation(fields: [riskLevelId], references: [id])
+  riskLevelId        String            @db.ObjectId
+  isEdible           Edible            @default(NO)
+}
+
+enum Edible {
+  YES
+  NO
 }

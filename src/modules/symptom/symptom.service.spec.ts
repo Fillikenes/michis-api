@@ -27,14 +27,11 @@ describe('SymptomService', () => {
         {
           provide: SeverityScaleService,
           useValue: {
-            severityScaleService: {
-              getSeverityScaleById: jest.fn(),
-            },
+            getSeverityScaleById: jest.fn(),
           },
         },
       ],
     }).compile();
-
     service = module.get<SymptomService>(SymptomService);
     prismaService = module.get<PrismaService>(PrismaService);
     severityScaleService =
@@ -54,6 +51,7 @@ describe('SymptomService', () => {
           id: 'abc123',
           name: 'symptom',
           severityScaleId: 'severity scale id',
+          foodIds: [],
         },
       ];
       const findManySpy = jest
@@ -75,6 +73,7 @@ describe('SymptomService', () => {
         id: params.id,
         name: 'symptom',
         severityScaleId: 'severity scale id',
+        foodIds: [],
       };
 
       const findFirstSpy = jest
@@ -103,10 +102,14 @@ describe('SymptomService', () => {
         id: '123abc',
         name: params.name,
         severityScaleId: params.severityScaleId,
+        foodIds: [],
       };
       const createSpy = jest
         .spyOn(prismaService.symptom, 'create')
         .mockResolvedValue(expectedResponse);
+      jest
+        .spyOn(severityScaleService, 'getSeverityScaleById')
+        .mockResolvedValue({} as any);
 
       const result = await service.createSymptom(
         params.name,
