@@ -9,7 +9,7 @@ export class RiskLevelService {
   constructor(private readonly prismaService: PrismaService) {}
 
   public async getRiskLevels(): Promise<RiskLevel[]> {
-    return this.model.findMany();
+    return this.model.findMany({ include: { foods: true } });
   }
 
   public async getRiskLevelById(id: string): Promise<RiskLevel> {

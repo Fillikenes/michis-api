@@ -13,13 +13,15 @@ export class SymptomService {
   ) {}
 
   public async getSymptoms(): Promise<Symptom[]> {
-    return this.model.findMany({ include: { severityScale: true } });
+    return this.model.findMany({
+      include: { severityScale: true, foods: true },
+    });
   }
 
   public async getSymptomById(id: string): Promise<Symptom> {
     return this.model.findFirst({
       where: { id },
-      include: { severityScale: true },
+      include: { severityScale: true, foods: true },
     });
   }
 

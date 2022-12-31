@@ -96,14 +96,14 @@ DELETE {{Host}}/severity-scale/636172586a00904c6b70ba20 HTTP/1.1
 ### GET ALL SYMPTOMS
 GET {{Host}}/symptom HTTP/1.1
 ### GET SYMPTOM BY ID
-GET {{Host}}/symptom/636f06c1c822c8919d3d203a HTTP/1.1
+GET {{Host}}/symptom/63afa7af42be90e3a4e1be08 HTTP/1.1
 ### CREATE NEW SYMPTOM
 POST {{Host}}/symptom HTTP/1.1
 content-type: application/json
 
 {
-    "name": "symptom 2 severity doesn't exist",
-    "severityScaleId": "63618a027438717bc9f1f222"
+    "name": "symptom 2",
+    "severityScaleId": "63618a047438717bc9f1f1e3"
 }
 ### UPDATE SYMPTOM
 PUT {{Host}}/symptom/ID HTTP/1.1
@@ -115,3 +115,32 @@ content-type: application/json
 }
 ### DELETE SYMPTOM
 DELETE {{Host}}/symptom/636f06c1c822c8919d3d203a HTTP/1.1
+###
+### Symptom
+### GET ALL FOODS
+GET {{Host}}/food HTTP/1.1
+### GET FOOD BY ID
+GET {{Host}}/food/63afa86342be90e3a4e1be09 HTTP/1.1
+### CREATE NEW FOOD
+POST {{Host}}/food HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Completo 2",
+    "description": "Bien grande como te gusta",
+    "suggestions": ["Cierra los ojos y pa entro"],
+    "symptomsIds": ["63afa7af42be90e3a4e1be08"],
+    "categoryId": "6358a8a7d67246536825ca90",
+    "riskLevelId": "635d9d9a93b2bfccf5164bfb",
+    "consumeFrequencyId": "635de6ee8e238e5869b21652",
+    "isEdible": "YES"
+}
+### UPDATE FOOD
+PUT {{Host}}/food/63afa86342be90e3a4e1be09 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Chorrillana"
+}
+### DELETE FOOD
+DELETE {{Host}}/food/63afa86342be90e3a4e1be09 HTTP/1.1
