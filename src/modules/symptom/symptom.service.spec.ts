@@ -127,4 +127,27 @@ describe('SymptomService', () => {
       });
     });
   });
+
+  describe('#deleteSymptomById', () => {
+    it('should delete a specific symptom from db by id given as argument', async () => {
+      const params = { id: 'abc123' };
+      const expectedResponse = {
+        id: params.id,
+        name: 'symptom',
+        severityScaleId: 'severity scale id',
+        foodIds: [],
+      };
+
+      const deleteSpy = jest
+        .spyOn(prismaService.symptom, 'delete')
+        .mockResolvedValue(expectedResponse);
+
+      const result = await service.deleteSymptomById(params.id);
+
+      expect(result).toBeDefined();
+      expect(result).toEqual(expectedResponse);
+      expect(deleteSpy).toHaveBeenCalled();
+      expect(deleteSpy).toHaveBeenCalledWith({ where: { id: params.id } });
+    });
+  });
 });
