@@ -2,6 +2,7 @@ import { Symptom } from '@prisma/client';
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../shared/services/prisma/prisma.service';
 import { SeverityScaleService } from '../severity-scale/severity-scale.service';
+import { ICreateSymptomParams, IUpdateSymptomParams } from './params';
 
 @Injectable()
 export class SymptomService {
@@ -25,31 +26,23 @@ export class SymptomService {
     });
   }
 
-  public async createSymptom(
-    name: string,
-    severityScaleId: string,
-  ): Promise<Symptom> {
-    await this.severityScaleService.getSeverityScaleById(severityScaleId);
+  public async createSymptom(params: ICreateSymptomParams): Promise<Symptom> {
+    await this.severityScaleService.getSeverityScaleById(
+      params.severityScaleId,
+    );
 
     return this.model.create({
-      data: {
-        name,
-        severityScaleId,
-      },
+      data: params,
     });
   }
 
   public async updateSymptom(
     id: string,
-    name: string,
-    severityScaleId: string,
+    params: IUpdateSymptomParams,
   ): Promise<Symptom> {
     return this.model.update({
       where: { id },
-      data: {
-        name,
-        severityScaleId,
-      },
+      data: params,
     });
   }
 

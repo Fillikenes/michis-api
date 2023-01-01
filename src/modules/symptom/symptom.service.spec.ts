@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { SymptomService } from './symptom.service';
 import { PrismaService } from '../../shared/services/prisma/prisma.service';
 import { SeverityScaleService } from '../severity-scale/severity-scale.service';
+import { SymptomService } from './symptom.service';
 
 describe('SymptomService', () => {
   let service: SymptomService;
@@ -111,10 +111,7 @@ describe('SymptomService', () => {
         .spyOn(severityScaleService, 'getSeverityScaleById')
         .mockResolvedValue({} as any);
 
-      const result = await service.createSymptom(
-        params.name,
-        params.severityScaleId,
-      );
+      const result = await service.createSymptom(params);
 
       expect(result).toBeDefined();
       expect(result).toEqual(expectedResponse);

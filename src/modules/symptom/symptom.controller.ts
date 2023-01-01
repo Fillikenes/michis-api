@@ -1,11 +1,11 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Put,
-  Param,
+  Controller,
   Delete,
+  Get,
+  Param,
+  Post,
+  Put,
 } from '@nestjs/common';
 import { CreateSymptomDto, UpdateSymptomDto } from './dtos';
 import { SymptomService } from './symptom.service';
@@ -25,18 +25,16 @@ export class SymptomController {
   }
 
   @Post()
-  public async createSymptom(
-    @Body() { name, severityScaleId }: CreateSymptomDto,
-  ) {
-    return this.symptomService.createSymptom(name, severityScaleId);
+  public async createSymptom(@Body() params: CreateSymptomDto) {
+    return this.symptomService.createSymptom(params);
   }
 
   @Put('/:id')
   public async updateSymptom(
     @Param('id') id: string,
-    @Body() { name, severityScaleId }: UpdateSymptomDto,
+    @Body() params: UpdateSymptomDto,
   ) {
-    return this.symptomService.updateSymptom(id, name, severityScaleId);
+    return this.symptomService.updateSymptom(id, params);
   }
 
   @Delete(':id')
