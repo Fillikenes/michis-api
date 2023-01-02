@@ -6,12 +6,15 @@ import {
   Put,
   Param,
   Delete,
+  UseInterceptors,
 } from '@nestjs/common';
 import { SeverityScaleService } from './severity-scale.service';
 import { CreateSeverityScaleDto } from './dtos/create-severity-scale.dto';
 import { UpdateSeverityScaleDto } from './dtos/update-severity-scale.dto';
+import { TransformInterceptor } from '../../interceptors/transform.interceptor';
 
 @Controller('severity-scale')
+@UseInterceptors(TransformInterceptor)
 export class SeverityScaleController {
   constructor(private readonly severityScaleService: SeverityScaleService) {}
 
