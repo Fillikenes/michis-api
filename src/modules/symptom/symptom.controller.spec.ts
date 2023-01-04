@@ -99,10 +99,7 @@ describe('SymptomController', () => {
       expect(result).toBeDefined();
       expect(result).toEqual(expectedResponse);
       expect(createSymptomSpy).toHaveBeenCalled();
-      expect(createSymptomSpy).toHaveBeenCalledWith(
-        params.name,
-        params.severityScaleId,
-      );
+      expect(createSymptomSpy).toHaveBeenCalledWith(params);
     });
   });
 
@@ -128,11 +125,7 @@ describe('SymptomController', () => {
       expect(result).toBeDefined();
       expect(result).toEqual(expectedResponse);
       expect(updateSeverityScaleSpy).toHaveBeenCalled();
-      expect(updateSeverityScaleSpy).toHaveBeenCalledWith(
-        paramId,
-        paramsBody.name,
-        paramsBody.severityScaleId,
-      );
+      expect(updateSeverityScaleSpy).toHaveBeenCalledWith(paramId, paramsBody);
     });
   });
 
