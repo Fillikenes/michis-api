@@ -6,11 +6,14 @@ import {
   Param,
   Post,
   Put,
+  UseInterceptors,
 } from '@nestjs/common';
 import { ConsumeFrequencyService } from './consume-frequency.service';
 import { CreateConsumeFrequencyDto, UpdateConsumeFrequencyDto } from './dtos';
+import { TransformInterceptor } from '../../interceptors/transform.interceptor';
 
 @Controller('consume-frequency')
+@UseInterceptors(TransformInterceptor)
 export class ConsumeFrequencyController {
   constructor(
     private readonly consumeFrequencyService: ConsumeFrequencyService,

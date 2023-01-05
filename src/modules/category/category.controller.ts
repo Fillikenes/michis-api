@@ -6,11 +6,14 @@ import {
   Param,
   Post,
   Put,
+  UseInterceptors,
 } from '@nestjs/common';
 import { CategoryService } from './category.service';
 import { CreateCategoryDto, UpdateCategoryDto } from './dtos';
+import { TransformInterceptor } from '../../interceptors/transform.interceptor';
 
 @Controller('category')
+@UseInterceptors(TransformInterceptor)
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 
