@@ -5,7 +5,7 @@ import { AppController } from './app.controller';
 import { ConfigModule } from './config/config.module';
 import { CategoryModule } from './modules/category/category.module';
 import { PrismaModule } from './shared/services/prisma/prisma.module';
-import { HttpExceptionFilter } from './filters/http-exeception.filter';
+import { HttpExceptionFilter } from './filters/http-exception.filter';
 import { LoggingInterceptor } from './interceptors/logging.interceptor';
 import { RiskLevelModule } from './modules/risk-level/risk-level.module';
 import { SeverityScaleModule } from './modules/severity-scale/severity-scale.module';
