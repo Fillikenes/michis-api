@@ -6,11 +6,14 @@ import {
   Param,
   Post,
   Put,
+  UseInterceptors,
 } from '@nestjs/common';
 import { RiskLevelService } from './risk-level.service';
 import { CreateRiskLevelDto, UpdateRiskLevelDto } from './dtos';
+import { TransformInterceptor } from '../../interceptors/transform.interceptor';
 
 @Controller('risk-level')
+@UseInterceptors(TransformInterceptor)
 export class RiskLevelController {
   constructor(private readonly riskLevelService: RiskLevelService) {}
 
