@@ -1,17 +1,16 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Put,
-  Param,
+  Controller,
   Delete,
+  Get,
+  Param,
+  Post,
+  Put,
   UseInterceptors,
 } from '@nestjs/common';
-import { SeverityScaleService } from './severity-scale.service';
-import { CreateSeverityScaleDto } from './dtos/create-severity-scale.dto';
-import { UpdateSeverityScaleDto } from './dtos/update-severity-scale.dto';
 import { TransformInterceptor } from '../../interceptors/transform.interceptor';
+import { CreateSeverityScaleDto, UpdateSeverityScaleDto } from './dtos';
+import { SeverityScaleService } from './severity-scale.service';
 
 @Controller('severity-scale')
 @UseInterceptors(TransformInterceptor)

@@ -13,7 +13,13 @@ export class SeverityScaleService {
   }
 
   public async getSeverityScaleById(id: string): Promise<SeverityScale> {
-    return this.model.findFirst({ where: { id } });
+    const severityScale = await this.model.findFirst({ where: { id } });
+
+    if (!severityScale) {
+      throw new Error('Severity scale not found');
+    }
+
+    return severityScale;
   }
 
   public async createSeverityScale(
