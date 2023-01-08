@@ -77,7 +77,6 @@ enum EPrismaErrorHttpStatusCode {
   /** Prisma needs to perform transactions, which requires your MongoDB server to be run as a replica set. See details: https://pris.ly/d/mongodb-replica-set */
   P2031 = HttpStatus.CONFLICT,
   /** A number used in the query does not fit into a 64 bit signed integer. Consider using BigInt as field type if you're trying to store large integers */
-  /** Transaction failed due to a write conflict or a deadlock. Please retry your transaction */
   P2033 = HttpStatus.INTERNAL_SERVER_ERROR,
   /** Transaction failed due to a write conflict or a deadlock. Please retry your transaction */
   P2034 = HttpStatus.INTERNAL_SERVER_ERROR,
