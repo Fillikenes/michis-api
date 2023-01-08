@@ -35,6 +35,8 @@ export class CreateFoodDto implements ICreateFoodParams {
   riskLevelId: string;
 
   @IsDefined()
-  @IsEnum(Edible)
+  @IsEnum(Edible, {
+    message: `isEdible must be a valid enum value: [${Object.keys(Edible)}]`,
+  })
   isEdible: Edible;
 }
